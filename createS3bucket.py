@@ -1,7 +1,7 @@
 import boto3
 import os
-os.environ['AWS_PROFILE'] = default
-os.environ['AWS_DEFAULT_REGION'] = us-east-1
+os.environ['AWS_PROFILE'] = 'default'
+os.environ['AWS_DEFAULT_REGION'] = 'us-east-1'
 sess= boto3.Session(region_name='us-east-1')
 s3client = sess.client('s3')
 # s3 = boto3.resource('s3',
