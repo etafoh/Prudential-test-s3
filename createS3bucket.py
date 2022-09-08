@@ -16,7 +16,7 @@ sess= boto3.Session(aws_access_key_id=ACCESS_KEY,
 
 s3client = sess.client('s3')
 
-bucket_name='prudential-s3'
+bucket_name='prudential1-s3'
 s3_location={
     'LocationConstraint': 'us-east-2'
 }
