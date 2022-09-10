@@ -12,7 +12,9 @@ pipeline {
         }
         stage('Uploas') {
           steps {
+            withAWS(credentials: 'aws-creds', region: 'us-east-2') {
              s3Upload(file:'file.txt', bucket:'big-thing-happen-big1', path:'file.txt')
+            }
           }
         }
     }
