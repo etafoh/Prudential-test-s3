@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Uploas') {
           steps {
-             sh 'upload.sh'
+             s3Upload(file:'file.txt', bucket:'big-thing-happen-big1', path:'file.txt')
           }
         }
     }
