@@ -10,6 +10,11 @@ pipeline {
               }
             }
         }
+        stage('Uploas') {
+          steps {
+            s3Upload acl: 'Private', bucket: 'big-thing-happen-big1', cacheControl: '', excludePathPattern: '', file: 'file.txt', includePathPattern: '', metadatas: [''], path: 'Prudential-test-s3/file.txt', redirectLocation: '', sseAlgorithm: '', tags: '', text: 'the people of Georgia', workingDir: '/Prudential-test-s3/file.txt'
+          }
+        }
     }
 }
 
