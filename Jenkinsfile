@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Uploas') {
           steps {
-             sh 
+             sh 'upload.sh'
           }
         }
     }
