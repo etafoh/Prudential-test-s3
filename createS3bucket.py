@@ -8,5 +8,5 @@ s3_location={
 }
 try:
     s3client.create_bucket(Bucket=bucket_name, CreateBucketConfiguration=s3_location)
-except: # you can catch the specific error that boto3 throws when it already exists, for now lets simply do nothing.
-  pass
+except s3client.exceptions.BucketAlreadyExists as err:
+    print('Error Message: {}'.format(err.response['Error']['Message']))
