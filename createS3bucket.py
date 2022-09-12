@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.6
 import boto3
 
 sess= boto3.Session(region_name='us-east-1')
