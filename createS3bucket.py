@@ -8,5 +8,6 @@ s3_location={
 }
 try:
     s3client.create_bucket(Bucket=bucket_name, CreateBucketConfiguration=s3_location)
+    print('Bucket created')
 except s3client.exceptions.BucketAlreadyExists as err:
     print('Error Message: {}'.format(err.response['Error']['Message']))
