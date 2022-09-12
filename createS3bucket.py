@@ -2,12 +2,21 @@ import boto3
 
 sess= boto3.Session(region_name='us-east-2')
 s3client = sess.client('s3')
-bucket_name='big-thing-happen-big1'
+bucket_name='good-lets-see-3'
 s3_location={
     'LocationConstraint': 'us-east-2'
 }
-try:
-    s3client.create_bucket(Bucket=bucket_name, CreateBucketConfiguration=s3_location)
-    print('Bucket created')
-except s3client.exceptions.BucketAlreadyExists as err:
-    print('Error Message: {}'.format(err.response['Error']['Message']))
+
+def bucket_exists(bucket_name):
+  s3 = boto3.resource('s3')
+  return s3.Bucket(bucket_name) in s3.buckets.all()
+
+if bucket_exists(bucket_name):
+  print('the bucket already exists!')
+  #Do nothing
+else:
+  #create bucket
+  s3client.create_bucket(Bucket=bucket_name, CreateBucketConfiguration=s3_location)
+  print('the bucket created')
+
+
