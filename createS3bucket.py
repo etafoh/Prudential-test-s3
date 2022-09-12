@@ -7,4 +7,7 @@ bucket_name='big-thing-happen-big1'
 s3_location={
     'LocationConstraint': 'us-east-1'
 }
-s3client.create_bucket(Bucket=bucket_name, CreateBucketConfiguration=s3_location)
+try:
+    s3client.create_bucket(Bucket=bucket_name, CreateBucketConfiguration=s3_location)
+except: # you can catch the specific error that boto3 throws when it already exists, for now lets simply do nothing.
+  pass
