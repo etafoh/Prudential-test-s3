@@ -1,8 +1,11 @@
+import sys
 import boto3
 
 sess= boto3.Session(region_name='us-east-2')
 s3client = sess.client('s3')
-bucket_name='test-bucket-netbiz-sept'
+# command line argument for bucket name
+bucket_name = sys.argv[1]
+
 s3_location={
     'LocationConstraint': 'us-east-2'
 }
